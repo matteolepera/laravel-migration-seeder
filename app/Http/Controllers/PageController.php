@@ -9,6 +9,9 @@ class PageController extends Controller
 {
     public function index()
     {
-        return view("home");
+        $trains = Train::where("departure_at", '>=', now())->orderBy("departure_at")->get();
+
+        //dd($trains);
+        return view("home", compact("trains"));
     }
 }
