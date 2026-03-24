@@ -1,3 +1,210 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "header.css";
+
+.board-main {
+    background: var(--board-bg);
+    font-family: var(--board-font);
+}
+
+/* --- Tabella ----------------------------------------------- */
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Larghezze colonne */
+.board-table colgroup col:nth-child(1) {
+    width: 16%;
+}
+
+/* orario   */
+.board-table colgroup col:nth-child(2) {
+    width: 38%;
+}
+
+/* dest     */
+.board-table colgroup col:nth-child(3) {
+    width: 14%;
+}
+
+/* codice   */
+.board-table colgroup col:nth-child(4) {
+    width: 16%;
+}
+
+/* azienda  */
+.board-table colgroup col:nth-child(5) {
+    width: 16%;
+}
+
+/* stato    */
+
+/* --- Intestazione ------------------------------------------ */
+.board-table thead tr {
+    background: #1c1c1c;
+}
+
+.board-table thead th {
+    padding: 10px 14px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--board-muted);
+    text-align: left;
+    border-bottom: 1px solid var(--board-border);
+    font-weight: 400;
+}
+
+/* --- Righe ------------------------------------------------- */
+.board-table__row {
+    border-bottom: 1px solid #222;
+}
+
+.board-table__row:nth-child(odd) {
+    background: #131313;
+}
+
+.board-table__row:nth-child(even) {
+    background: #0e0e0e;
+}
+
+.board-table__row--cancelled td {
+    opacity: 0.5;
+}
+
+.board-table tbody td {
+    padding: 12px 14px;
+    vertical-align: middle;
+}
+
+/* --- Orario ------------------------------------------------ */
+.board-table__time {
+    white-space: nowrap;
+}
+
+.board-table__time-dep {
+    font-size: 20px;
+    color: var(--board-amber);
+    letter-spacing: 2px;
+}
+
+.board-table__time-arrow {
+    font-size: 12px;
+    color: var(--board-muted);
+    margin: 0 6px;
+}
+
+.board-table__time-arr {
+    font-size: 14px;
+    color: var(--board-muted);
+    letter-spacing: 1px;
+}
+
+/* --- Data partenz ------------------------------------------ */
+
+.board-table__date {
+    font-size: 11px;
+    color: var(--board-muted);
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+/* --- Destinazione ------------------------------------------ */
+.board-table__destination {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.board-table__dest-from {
+    font-size: 15px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.board-table__dest-arrow {
+    font-size: 12px;
+    color: var(--board-muted);
+    margin: 0 8px;
+}
+
+.board-table__dest-to {
+    font-size: 15px;
+    color: var(--board-amber);
+    letter-spacing: 1px;
+}
+
+/* --- Codice ------------------------------------------------ */
+.board-table__code {
+    font-size: 13px;
+    color: #aaaaaa;
+    letter-spacing: 1px;
+}
+
+/* --- Azienda ----------------------------------------------- */
+.board-table__company {
+    font-size: 12px;
+    color: var(--board-muted);
+    letter-spacing: 1px;
+}
+
+/* --- Badge ------------------------------------------- */
+.board-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.board-badge--ontime {
+    background: #0d2e14;
+    color: #3ecf6e;
+    border: 1px solid #1a5c2a;
+}
+
+.board-badge--cancelled {
+    background: #2e0d0d;
+    color: #e04040;
+    border: 1px solid #5c1a1a;
+}
+
+.board-badge--late {
+    background: #2c2e0d;
+    color: #ffde38;
+    border: 1px solid #555c1a;
+}
+
+.board-table__empty {
+    text-align: center;
+    padding: 40px 14px;
+    color: var(--board-muted);
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* --- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+    .board-table__company {
+        display: none;
+    }
+
+    .board-table__dest-from,
+    .board-table__dest-to {
+        font-size: 13px;
+    }
+
+    .board-table__time-dep {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .board-table__code {
+        display: none;
+    }
+
+    .board-table thead th,
+    .board-table tbody td {
+        padding: 10px 8px;
+    }
+}
