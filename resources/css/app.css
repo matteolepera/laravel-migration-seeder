@@ -1,5 +1,11 @@
 @import "header.css";
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .board-main {
     background: var(--board-bg);
     font-family: var(--board-font);
@@ -108,12 +114,7 @@
     margin-bottom: 2px;
 }
 
-/* --- Destinazione ------------------------------------------ */
-.board-table__destination {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+
 
 .board-table__dest-from {
     font-size: 15px;
